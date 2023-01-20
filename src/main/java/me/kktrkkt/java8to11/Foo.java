@@ -1,5 +1,7 @@
 package me.kktrkkt.java8to11;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.*;
 
 public class Foo {
@@ -63,6 +65,24 @@ public class Foo {
 //        chapter1();
 //        chapter2();
 //        chapter3();
+        // 타입의 스태틱 메소드 참조
+        Function<Integer, String> intToString = String::valueOf;
+
+        // 특정 객체의 인스턴스 메소드 참조
+        String kktrkkt = "kktrkkt";
+        Supplier<String> getKKTRKKT = kktrkkt::toUpperCase;
+
+        // 임의 객체의 인스턴스 메소드 참조
+        String[] fruits = {"banana", "apple", "strawberry"};
+        Arrays.sort(fruits, String::compareToIgnoreCase);
+
+        // 생성자 참조
+        Function<StringBuilder, String> stringBuildToString = String::new;
+
+        System.out.println(intToString.apply(10) instanceof String);
+        System.out.println(getKKTRKKT.get());
+        System.out.println(Arrays.toString(fruits));
+        System.out.println(stringBuildToString.apply(new StringBuilder("hello")) instanceof String);
     }
 
     private void run() {
