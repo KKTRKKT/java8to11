@@ -1,6 +1,6 @@
 package me.kktrkkt.java8to11;
 
-import java.util.function.Function;
+import java.util.function.*;
 
 public class Foo {
 
@@ -37,5 +37,19 @@ public class Foo {
         Function<Integer, Integer> multiply2 = i -> i*2;
         System.out.println(plus10.compose(multiply2).apply(2)); // multiply2 -> plus10 호출
         System.out.println(plus10.andThen(multiply2).apply(2)); // plus10 -> multiply2 호출
+
+        BiFunction<Integer, Integer, Integer> plus = (a, b) -> a + b;
+        Consumer<String> printName = name -> { System.out.println(name); };
+        Supplier<Integer> get10 = () -> 10;
+        Predicate<String> startsWithA = str -> str.startsWith("A");
+        UnaryOperator<Integer> plus10UO = i -> i+10;
+        BinaryOperator<Integer> plusBO = (a, b) -> a + b;
+
+        System.out.println(plus.apply(10, 20));
+        printName.accept("KKTRKKT");
+        System.out.println(get10.get());
+        System.out.println(startsWithA.test("Admin"));
+        System.out.println(plus10UO.apply(1));
+        System.out.println(plusBO.apply(10, 20));
     }
 }
