@@ -11,5 +11,8 @@ public class Foo {
             }
         };
         runSomething.doIt();
+        //람다 표현식
+        RunSomething lambdaRunSomething = () -> System.out.println("Hello");
+        lambdaRunSomething.doIt();
     }
 }
