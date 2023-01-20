@@ -29,8 +29,8 @@ public class Foo {
         notPureRunSomething.doIt();
     }
 
-    public static void main(String[] args) {
-//        chapter1();
+    //자바에서 제공하는 함수형 인터페이스
+    public static void chapter2(){
         Function<Integer, Integer> plus10 = i -> i+10;
         System.out.println(plus10.apply(1));
 
@@ -51,5 +51,10 @@ public class Foo {
         System.out.println(startsWithA.test("Admin"));
         System.out.println(plus10UO.apply(1));
         System.out.println(plusBO.apply(10, 20));
+    }
+
+    public static void main(String[] args) {
+//        chapter1();
+//        chapter2();
     }
 }
