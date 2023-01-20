@@ -33,5 +33,9 @@ public class Foo {
 //        chapter1();
         Function<Integer, Integer> plus10 = i -> i+10;
         System.out.println(plus10.apply(1));
+
+        Function<Integer, Integer> multiply2 = i -> i*2;
+        System.out.println(plus10.compose(multiply2).apply(2)); // multiply2 -> plus10 호출
+        System.out.println(plus10.andThen(multiply2).apply(2)); // plus10 -> multiply2 호출
     }
 }
