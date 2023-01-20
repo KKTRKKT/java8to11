@@ -56,5 +56,37 @@ public class Foo {
     public static void main(String[] args) {
 //        chapter1();
 //        chapter2();
+        Foo foo = new Foo();
+        foo.run();
+    }
+
+    private void run() {
+        int baseNumber = 10;
+
+        // 로컬 클래스
+        class LocalClass {
+            int baseNumber = 11;
+            void printNumber(Integer value){
+                System.out.println(value+baseNumber); // value+11
+            }
+        }
+
+        // 익명 클래스
+        IntConsumer printNumber = new IntConsumer() {
+            @Override
+            public void accept(int baseNumber) {
+                System.out.println(baseNumber); //매개변수 basenumber
+            }
+        };
+
+        // 람다
+//        IntConsumer printInt = baseNumber -> System.out.println(baseNumber+10); already defined in scope
+        IntConsumer printInt = i -> System.out.println(i+10);
+
+        LocalClass lc = new LocalClass();
+
+        lc.printNumber(10);
+        printNumber.accept(11);
+        printInt.accept(10);
     }
 }
