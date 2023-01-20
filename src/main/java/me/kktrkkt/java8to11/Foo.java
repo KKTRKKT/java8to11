@@ -53,14 +53,20 @@ public class Foo {
         System.out.println(plusBO.apply(10, 20));
     }
 
-    public static void main(String[] args) {
-//        chapter1();
-//        chapter2();
+    // 람다 표현식
+    private static void chapter3() {
         Foo foo = new Foo();
         foo.run();
     }
 
+    public static void main(String[] args) {
+//        chapter1();
+//        chapter2();
+//        chapter3();
+    }
+
     private void run() {
+        //expected final
         int baseNumber = 10;
 
         // 로컬 클래스
