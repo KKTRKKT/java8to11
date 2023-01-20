@@ -1,5 +1,7 @@
 package me.kktrkkt.java8to11;
 
+import java.util.function.Function;
+
 public class Foo {
 
     // 함수형 인터페이스와 람다 표현식 소개
@@ -29,6 +31,7 @@ public class Foo {
 
     public static void main(String[] args) {
 //        chapter1();
-
+        Function<Integer, Integer> plus10 = i -> i+10;
+        System.out.println(plus10.apply(1));
     }
 }
