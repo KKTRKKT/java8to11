@@ -2,7 +2,8 @@ package me.kktrkkt.java8to11;
 
 public class Foo {
 
-    public static void main(String[] args) {
+    // 함수형 인터페이스와 람다 표현식 소개
+    static public void chapter1(){
         //익명 내부 클래스
         RunSomething runSomething = new RunSomething() {
             @Override
@@ -24,5 +25,10 @@ public class Foo {
             }
         };
         notPureRunSomething.doIt();
+    }
+
+    public static void main(String[] args) {
+//        chapter1();
+
     }
 }
