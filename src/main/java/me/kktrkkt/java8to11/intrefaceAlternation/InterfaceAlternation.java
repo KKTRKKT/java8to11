@@ -6,5 +6,7 @@ public class InterfaceAlternation {
         Greeting greeting = new DefaultGreeting("greeting");
         greeting.printName();
         greeting.printNameUpperCase();
+
+        Greeting.printClass();
     }
 }
