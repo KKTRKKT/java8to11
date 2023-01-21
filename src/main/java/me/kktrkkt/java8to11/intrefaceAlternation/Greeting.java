@@ -16,6 +16,10 @@ public interface Greeting {
 
     String getName();
 
+    static void printClass(){
+        System.out.println(Greeting.class.getName());
+    }
+
 //    String toString(); 선언 가능, Object의 구현체이기 때문에 추상메소드로 보진 않고 제약사항으로 본다.
 
 //    default String toString(){} Object 메소드 오버라이드 불가

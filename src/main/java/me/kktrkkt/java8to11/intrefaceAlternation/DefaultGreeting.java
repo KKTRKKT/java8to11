@@ -1,6 +1,7 @@
 package me.kktrkkt.java8to11.intrefaceAlternation;
 
-public class DefaultGreeting implements Greeting{
+//Foo와 Greeting에서 printNameUpperCase 메소드가 충돌나므로 반드시 재정의 해야한다
+public class DefaultGreeting implements Greeting, Foo {
 
     String name;
 
