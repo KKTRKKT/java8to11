@@ -1,4 +1,4 @@
-package me.kktrkkt.java8to11;
+package me.kktrkkt.java8to11.intrefaceAlternation;
 
 public class DefaultGreeting implements Greeting{
 

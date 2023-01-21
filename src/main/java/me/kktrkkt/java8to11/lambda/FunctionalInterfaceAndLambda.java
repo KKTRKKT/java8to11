@@ -1,4 +1,4 @@
-package me.kktrkkt.java8to11;
+package me.kktrkkt.java8to11.lambda;
 
 import java.util.Arrays;
 import java.util.function.*;
