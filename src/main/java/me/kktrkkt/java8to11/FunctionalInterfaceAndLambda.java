@@ -1,10 +1,9 @@
 package me.kktrkkt.java8to11;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.*;
 
-public class Foo {
+public class FunctionalInterfaceAndLambda {
 
     // 함수형 인터페이스와 람다 표현식 소개
     static public void chapter1(){
@@ -57,8 +56,8 @@ public class Foo {
 
     // 람다 표현식
     private static void chapter3() {
-        Foo foo = new Foo();
-        foo.run();
+        FunctionalInterfaceAndLambda functionalInterfaceAndLambda = new FunctionalInterfaceAndLambda();
+        functionalInterfaceAndLambda.run();
     }
 
     public static void main(String[] args) {
