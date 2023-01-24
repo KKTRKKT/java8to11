@@ -1,9 +1,6 @@
 package me.kktrkkt.java8to11.api.defaultMethod;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Spliterator;
+import java.util.*;
 
 public class App {
 
@@ -32,7 +29,13 @@ public class App {
 
         System.out.println("-------------------------------");
 
-        fruits.removeIf(s -> s.startsWith("a"));
+//        fruits.removeIf(s -> s.startsWith("a"));
+        fruits.forEach(System.out::println);
+
+        System.out.println("-------------------------------");
+
+        Comparator<String> compareToIgnoreCase = String::compareToIgnoreCase;
+        fruits.sort(compareToIgnoreCase.reversed());
         fruits.forEach(System.out::println);
     }
 }
