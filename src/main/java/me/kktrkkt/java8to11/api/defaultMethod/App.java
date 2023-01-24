@@ -53,5 +53,10 @@ public class App {
         fruits.sort(Comparator.reverseOrder());
         fruits.forEach(System.out::println);
 
+        System.out.println("--------------naturalOrder()-----------------");
+
+        fruits.sort(Comparator.naturalOrder());
+        fruits.forEach(System.out::println);
+
     }
 }
