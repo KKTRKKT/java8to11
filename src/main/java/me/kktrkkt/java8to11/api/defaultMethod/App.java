@@ -11,15 +11,22 @@ public class App {
 
         fruits.forEach(System.out::println);
 
+        System.out.println("-------------------------------");
+
         Spliterator<String> spliterator = fruits.spliterator();
         Spliterator<String> split = spliterator.trySplit();
         while(split.tryAdvance(System.out::println));
         while(spliterator.tryAdvance(System.out::println));
+
+        System.out.println("-------------------------------");
 
         long k = fruits.stream()
                 .map(String::toUpperCase)
                 .filter(s -> s.startsWith("A"))
                 .count();
         System.out.println(k);
+
+        System.out.println("-------------------------------");
+
     }
 }
