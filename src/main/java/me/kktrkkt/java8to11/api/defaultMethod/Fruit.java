@@ -1,8 +1,8 @@
 package me.kktrkkt.java8to11.api.defaultMethod;
 
-public class Fruit {
-    private String name;
-    private int year;
+public class Fruit implements Comparable<Fruit> {
+    private final String  name;
+    private final int year;
 
     public Fruit(String name, int year) {
        this.name = name;
@@ -23,5 +23,10 @@ public class Fruit {
                 "name='" + name + '\'' +
                 ", year=" + year +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Fruit o) {
+        return name.compareToIgnoreCase(o.getName());
     }
 }

@@ -1,7 +1,6 @@
 package me.kktrkkt.java8to11.api.defaultMethod;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class App {
 
@@ -48,5 +47,11 @@ public class App {
 
         fruits.sort(Comparator.comparing(Fruit::getName).thenComparing(Fruit::getYear));
         fruits.forEach(System.out::println);
+
+        System.out.println("--------------reverseOrder()-----------------");
+
+        fruits.sort(Comparator.reverseOrder());
+        fruits.forEach(System.out::println);
+
     }
 }
