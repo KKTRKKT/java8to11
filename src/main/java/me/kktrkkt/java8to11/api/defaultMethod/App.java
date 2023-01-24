@@ -64,5 +64,10 @@ public class App {
         fruits.sort(Comparator.nullsFirst(Fruit::compareTo));
         fruits.forEach(System.out::println);
 
+        System.out.println("--------------nullsLast-----------------");
+
+        fruits.sort(Comparator.nullsLast(Fruit::compareTo));
+        fruits.forEach(System.out::println);
+
     }
 }
