@@ -48,14 +48,20 @@ public class App {
         fruits.sort(Comparator.comparing(Fruit::getName).thenComparing(Fruit::getYear));
         fruits.forEach(System.out::println);
 
-        System.out.println("--------------reverseOrder()-----------------");
+        System.out.println("--------------reverseOrder-----------------");
 
         fruits.sort(Comparator.reverseOrder());
         fruits.forEach(System.out::println);
 
-        System.out.println("--------------naturalOrder()-----------------");
+        System.out.println("--------------naturalOrder-----------------");
 
         fruits.sort(Comparator.naturalOrder());
+        fruits.forEach(System.out::println);
+
+        System.out.println("--------------nullsFirst-----------------");
+
+        fruits.add(null);
+        fruits.sort(Comparator.nullsFirst(Fruit::compareTo));
         fruits.forEach(System.out::println);
 
     }
