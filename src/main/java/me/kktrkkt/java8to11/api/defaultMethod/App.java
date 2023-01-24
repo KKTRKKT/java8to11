@@ -36,7 +36,7 @@ public class App {
 
         System.out.println("--------------removeIf-----------------");
 
-//        fruits.removeIf(s -> s.startsWith("a"));
+//        fruits.removeIf(f -> f.getName().startsWith("a"));
         fruits.forEach(System.out::println);
 
         System.out.println("--------------reveresed-----------------");
