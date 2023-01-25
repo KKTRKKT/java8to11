@@ -13,6 +13,11 @@ public class App {
         springClasses.add(new OnlineClass(4, "spring core", false));
         springClasses.add(new OnlineClass(5, "rest api development", false));
 
-
+        OnlineClass springBoot = springClasses.get(0);
+        Progress progress = springBoot.getProgress();
+        //기존 null 처리 방법
+        if(progress != null){
+            System.out.println(progress.getStudyDuration());
+        }
     }
 }
