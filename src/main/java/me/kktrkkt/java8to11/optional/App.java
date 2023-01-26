@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.function.Predicate;
 
 public class App {
 
@@ -52,7 +53,12 @@ public class App {
 
         //orElseThrow 값이 없는 경우에 기본적으로 NoSuchElementExption을 던진다
 //        Optional.empty().orElseThrow(IllegalArgumentException::new);
-        
+
+        System.out.println("---------------filter--------------------");
+
+        //filter 조건에 맞으면 값이 있는 Optiaonl, 없으면 빈 Optaoinl 반환
+        Optional<OnlineClass> onlineClass2 = optional.filter(OnlineClass::isClosed);
+        System.out.println(onlineClass2.isPresent());
     }
 
     private static OnlineClass createOnlineClass() {
