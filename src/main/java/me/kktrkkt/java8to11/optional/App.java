@@ -59,6 +59,13 @@ public class App {
         //filter 조건에 맞으면 값이 있는 Optiaonl, 없으면 빈 Optaoinl 반환
         Optional<OnlineClass> onlineClass2 = optional.filter(OnlineClass::isClosed);
         System.out.println(onlineClass2.isPresent());
+
+        System.out.println("---------------map--------------------");
+
+        //map 값이 있으면 매핑함수를 적용한 값을 Optional에 실어서 반환
+        //매핑함수 적용값이 Optional일 경우 Optioanl<Optaionl>이 될 수 있어 flatMap을 사용
+        optional.map(OnlineClass::getId).ifPresent(System.out::println);
+//        Optional<Optional<Progress>> progress = optional.map(OnlineClass::getProgress);
     }
 
     private static OnlineClass createOnlineClass() {
