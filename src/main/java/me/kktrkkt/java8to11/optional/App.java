@@ -32,6 +32,19 @@ public class App {
         //ifPresnet 값이 있으면 메소드 실행
         optional.ifPresent(System.out::println);
 
+        System.out.println("---------------orElse--------------------");
+
+        //orElse 값이 없으면 other 출력
+        //createOnlineClass()는 값이 없을때도 실행된다.
+        Optional.empty().orElse(createOnlineClass());
+        OnlineClass onlineClass = optional.orElse(createOnlineClass());
+        System.out.println(onlineClass.getTitle());
+        
+    }
+
+    private static OnlineClass createOnlineClass() {
+        System.out.println("create new Online Class");
+        return new OnlineClass(6, "new Online Class", false);
     }
 
     private static void optionalExample(List<OnlineClass> springClasses) {
