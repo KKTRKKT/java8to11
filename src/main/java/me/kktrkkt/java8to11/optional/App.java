@@ -39,7 +39,14 @@ public class App {
         Optional.empty().orElse(createOnlineClass());
         OnlineClass onlineClass = optional.orElse(createOnlineClass());
         System.out.println(onlineClass.getTitle());
-        
+
+        System.out.println("---------------orElseGet--------------------");
+
+        //orElseGet 값이 없는 경우에 메소드 실행
+        //값이 없으면 createOnlineClass()는 실행되지 않는다
+        Optional.empty().orElseGet(App::createOnlineClass);
+        OnlineClass onlineClass1 = optional.orElseGet(App::createOnlineClass);
+        System.out.println(onlineClass.getTitle());
     }
 
     private static OnlineClass createOnlineClass() {
