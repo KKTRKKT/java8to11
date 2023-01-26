@@ -47,6 +47,10 @@ public class App {
         Optional.empty().orElseGet(App::createOnlineClass);
         OnlineClass onlineClass1 = optional.orElseGet(App::createOnlineClass);
         System.out.println(onlineClass.getTitle());
+
+        //orElseThrow 값이 없는 경우에 기본적으로 NoSuchElementExption을 던진다
+//        Optional.empty().orElseThrow(IllegalArgumentException::new);
+        
     }
 
     private static OnlineClass createOnlineClass() {
