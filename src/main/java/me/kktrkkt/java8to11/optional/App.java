@@ -66,6 +66,13 @@ public class App {
         //매핑함수 적용값이 Optional일 경우 Optioanl<Optaionl>이 될 수 있어 flatMap을 사용
         optional.map(OnlineClass::getId).ifPresent(System.out::println);
 //        Optional<Optional<Progress>> progress = optional.map(OnlineClass::getProgress);
+
+        System.out.println("---------------flatMap--------------------");
+
+        //flatMap Optional이 리턴되는 경우에만 사용한다.
+        Optional<Progress> progress = optional.flatMap(OnlineClass::getProgress);
+        progress.ifPresent(p-> System.out.println(p.getStudyDuration()));
+
     }
 
     private static OnlineClass createOnlineClass() {
