@@ -17,16 +17,21 @@ public class App {
 
 //        optionalExample(springClasses);
 
-        Optional<OnlineClass> onlineClass = springClasses.stream()
+        Optional<OnlineClass> optional = springClasses.stream()
                 .filter(s -> s.getTitle().startsWith("spring"))
                 .findFirst();
 
+        System.out.println("---------------isPresent--------------------");
+
         //isPresent 값이 있으면 true 반환
-        boolean present = onlineClass.isPresent();
+        boolean present = optional.isPresent();
         System.out.println(present);
 
+        System.out.println("---------------ifPresent--------------------");
+
         //ifPresnet 값이 있으면 메소드 실행
-        onlineClass.ifPresent(System.out::println);
+        optional.ifPresent(System.out::println);
+
     }
 
     private static void optionalExample(List<OnlineClass> springClasses) {
