@@ -16,6 +16,15 @@ public class App {
         springClasses.add(new OnlineClass(5, "rest api development", false));
 
 //        optionalExample(springClasses);
+
+        Optional<OnlineClass> onlineClass = springClasses.stream()
+                .filter(s -> s.getTitle().startsWith("spring"))
+                .findFirst();
+
+        //isPresent 값이 있으면 true 반환
+        boolean present = onlineClass.isPresent();
+        System.out.println(present);
+
     }
 
     private static void optionalExample(List<OnlineClass> springClasses) {
