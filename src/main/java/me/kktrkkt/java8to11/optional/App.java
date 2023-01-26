@@ -25,6 +25,8 @@ public class App {
         boolean present = onlineClass.isPresent();
         System.out.println(present);
 
+        //ifPresnet 값이 있으면 메소드 실행
+        onlineClass.ifPresent(System.out::println);
     }
 
     private static void optionalExample(List<OnlineClass> springClasses) {
