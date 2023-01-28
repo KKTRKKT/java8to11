@@ -35,6 +35,18 @@ public class App {
         //원하는 지역의 현재시간을 얻으려면
         ZonedDateTime nowInKorea = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
         System.out.println(nowInKorea);
+
+        System.out.println("------------------상호 호환-------------------------");
+
+        ZonedDateTime instantToZonedDateTime = ZonedDateTime.ofInstant(now, zone);
+        LocalDateTime instantToLocalDateTime = LocalDateTime.ofInstant(now, zone);
+        Instant localDateTimeToInstant = localNow.toInstant(ZoneOffset.UTC);
+        Instant zonedDateTimeToInstant = zonedDateTime.toInstant();
+
+        System.out.println(instantToZonedDateTime);
+        System.out.println(instantToLocalDateTime);
+        System.out.println(localDateTimeToInstant);
+        System.out.println(zonedDateTimeToInstant);
     }
 
     private static void dateProblem() throws InterruptedException {
