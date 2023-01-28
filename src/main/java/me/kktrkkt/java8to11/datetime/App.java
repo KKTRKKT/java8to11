@@ -58,6 +58,9 @@ public class App {
         Period between = Period.between(localNow.toLocalDate(), nowPlus20Days.toLocalDate());
         System.out.println(between.getDays());
 
+        // LocalDate의 until도 결과가 똑같다.
+        Period until = localNow.toLocalDate().until(nowPlus20Days.toLocalDate());
+        System.out.println(until.getDays());
     }
 
     private static void dateProblem() throws InterruptedException {
