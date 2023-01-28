@@ -32,6 +32,9 @@ public class App {
         LocalDateTime wirteTime = LocalDateTime.of(2023, Month.JANUARY, 28, 21, 23, 5);
         System.out.println(wirteTime);
 
+        //원하는 지역의 현재시간을 얻으려면
+        ZonedDateTime nowInKorea = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+        System.out.println(nowInKorea);
     }
 
     private static void dateProblem() throws InterruptedException {
