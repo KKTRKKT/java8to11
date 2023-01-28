@@ -1,5 +1,8 @@
 package me.kktrkkt.java8to11.datetime;
 
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -8,6 +11,11 @@ public class App {
 
     public static void main(String[] args) throws InterruptedException {
 //        dateProblem();
+        System.out.println("------------------현재 machine time 가져오기-------------------------");
+
+        Instant now = Instant.now();
+        // human time으로 출력된다.
+        System.out.println(now); // 기준시 UTC, GMT
 
     }
 
