@@ -1,8 +1,6 @@
 package me.kktrkkt.java8to11.datetime;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -24,6 +22,12 @@ public class App {
         ZonedDateTime zonedDateTime  = now.atZone(zone);
         System.out.println(zonedDateTime);
 
+        System.out.println("------------------human time api-------------------------");
+
+        // 로컬기준 시간이 출력된다.
+        LocalDateTime localNow = LocalDateTime.now();
+        System.out.println(localNow);
+        
     }
 
     private static void dateProblem() throws InterruptedException {
