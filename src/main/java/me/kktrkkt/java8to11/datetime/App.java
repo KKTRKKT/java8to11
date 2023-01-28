@@ -1,6 +1,7 @@
 package me.kktrkkt.java8to11.datetime;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAmount;
 import java.util.Calendar;
@@ -69,6 +70,12 @@ public class App {
         Instant nowPlus10Seconds = now.plusSeconds(10);
         Duration duration = Duration.between(now, nowPlus10Seconds);
         System.out.println(duration.getSeconds());
+
+        System.out.println("------------------DateTimeFormatter-------------------------");
+
+        DateTimeFormatter yyMMDD = DateTimeFormatter.ofPattern("yy/MM/dd");
+        System.out.println(localNow.format(yyMMDD));
+        System.out.println(localNow.format(DateTimeFormatter.ISO_LOCAL_TIME));
 
     }
 
