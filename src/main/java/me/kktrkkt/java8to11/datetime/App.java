@@ -77,6 +77,11 @@ public class App {
         System.out.println(localNow.format(yyMMDD));
         System.out.println(localNow.format(DateTimeFormatter.ISO_LOCAL_TIME));
 
+        System.out.println("------------------parse-------------------------");
+
+        // 포멧에 맞는 스트링을 입력하면 파싱해서 날짜를 가져온다
+        LocalDate parse = LocalDate.parse("23/01/28", yyMMDD);
+        System.out.println(parse);
     }
 
     private static void dateProblem() throws InterruptedException {
