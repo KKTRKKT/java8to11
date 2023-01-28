@@ -27,7 +27,11 @@ public class App {
         // 로컬기준 시간이 출력된다.
         LocalDateTime localNow = LocalDateTime.now();
         System.out.println(localNow);
-        
+
+        // of로 원하는 시간 생성 가능
+        LocalDateTime wirteTime = LocalDateTime.of(2023, Month.JANUARY, 28, 21, 23, 5);
+        System.out.println(wirteTime);
+
     }
 
     private static void dateProblem() throws InterruptedException {
