@@ -1,6 +1,8 @@
 package me.kktrkkt.java8to11.datetime;
 
 import java.time.*;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAmount;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -47,6 +49,15 @@ public class App {
         System.out.println(instantToLocalDateTime);
         System.out.println(localDateTimeToInstant);
         System.out.println(zonedDateTimeToInstant);
+
+        System.out.println("------------------Period-------------------------");
+
+        // 오늘부터 20일 뒤 날짜를 구한다.
+        LocalDateTime nowPlus20Days = localNow.plus(20, ChronoUnit.DAYS);
+        // 오늘과 20일뒤 사이의 기간을 구한다.
+        Period between = Period.between(localNow.toLocalDate(), nowPlus20Days.toLocalDate());
+        System.out.println(between.getDays());
+
     }
 
     private static void dateProblem() throws InterruptedException {
