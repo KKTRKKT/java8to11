@@ -7,6 +7,11 @@ import java.util.GregorianCalendar;
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
+//        dateProblem();
+
+    }
+
+    private static void dateProblem() throws InterruptedException {
         System.out.println("------------------ java.util.Date의 문제점-------------------------");
         //이름은 date지만 time을 포함하고 있다.
         Date date = new Date();
