@@ -82,6 +82,18 @@ public class App {
         // 포멧에 맞는 스트링을 입력하면 파싱해서 날짜를 가져온다
         LocalDate parse = LocalDate.parse("23/01/28", yyMMDD);
         System.out.println(parse);
+
+        System.out.println("------------------레거시 api 지원-------------------------");
+
+        // Date to Instant, Instant to Date
+        Date date = new Date();
+        Instant dateToInstant = date.toInstant();
+        Date instantToDate = Date.from(dateToInstant);
+
+        // GregorianCalendar to ZonedDateTime, ZonedDateTime to GregorianCalendar
+        GregorianCalendar calendar = new GregorianCalendar();
+        ZonedDateTime gregorianCalendarToZonedDateTime = calendar.toZonedDateTime();
+        GregorianCalendar zonedDateTimeToGregorianCalendar = GregorianCalendar.from(gregorianCalendarToZonedDateTime);
     }
 
     private static void dateProblem() throws InterruptedException {
