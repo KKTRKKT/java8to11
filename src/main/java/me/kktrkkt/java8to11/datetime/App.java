@@ -62,6 +62,14 @@ public class App {
         // LocalDate의 until도 결과가 똑같다.
         Period until = localNow.toLocalDate().until(nowPlus20Days.toLocalDate());
         System.out.println(until.getDays());
+
+        System.out.println("------------------Duration-------------------------");
+
+        //Duration은 machine time을 비교함
+        Instant nowPlus10Seconds = now.plusSeconds(10);
+        Duration duration = Duration.between(now, nowPlus10Seconds);
+        System.out.println(duration.getSeconds());
+
     }
 
     private static void dateProblem() throws InterruptedException {
