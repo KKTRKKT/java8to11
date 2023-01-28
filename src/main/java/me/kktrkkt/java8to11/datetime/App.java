@@ -17,6 +17,13 @@ public class App {
         // human time으로 출력된다.
         System.out.println(now); // 기준시 UTC, GMT
 
+        System.out.println("------------------로컬 기준시 가져오기-------------------------");
+
+        ZoneId zone = ZoneId.systemDefault();
+        System.out.println(zone);
+        ZonedDateTime zonedDateTime  = now.atZone(zone);
+        System.out.println(zonedDateTime);
+
     }
 
     private static void dateProblem() throws InterruptedException {
