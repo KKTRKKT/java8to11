@@ -57,6 +57,7 @@ public class App {
         // 오늘과 20일뒤 사이의 기간을 구한다.
         Period between = Period.between(localNow.toLocalDate(), nowPlus20Days.toLocalDate());
         System.out.println(between.getDays());
+        System.out.println(between.getMonths());
 
         // LocalDate의 until도 결과가 똑같다.
         Period until = localNow.toLocalDate().until(nowPlus20Days.toLocalDate());
