@@ -7,6 +7,7 @@ import java.time.temporal.TemporalAmount;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 public class App {
 
@@ -94,6 +95,11 @@ public class App {
         GregorianCalendar calendar = new GregorianCalendar();
         ZonedDateTime gregorianCalendarToZonedDateTime = calendar.toZonedDateTime();
         GregorianCalendar zonedDateTimeToGregorianCalendar = GregorianCalendar.from(gregorianCalendarToZonedDateTime);
+
+        ZoneId timeZoneToZoneId = TimeZone.getDefault().toZoneId();
+        TimeZone zonIdToTimeZone = TimeZone.getTimeZone(timeZoneToZoneId);
+        System.out.println(timeZoneToZoneId);
+        System.out.println(zonIdToTimeZone.getID());
     }
 
     private static void dateProblem() throws InterruptedException {
