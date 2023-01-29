@@ -2,7 +2,7 @@ package me.kktrkkt.java8to11.concurrent;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //멀티스레드에서 스레드의 순서는 보장하지 못한다.
         Thread thread = new MyThread();
         thread.start();
@@ -23,6 +23,24 @@ public class App {
         //메인 스레드
         System.out.println("main:"+Thread.currentThread().getName());
 
+        //1초마다 메세지를 출력하는 thread 생성
+        Thread sleepTest = new Thread(()->{
+            while(true){
+                System.out.println("sleepTest:"+Thread.currentThread().getName());
+                try {
+                    Thread.sleep(1000L);
+                } catch (InterruptedException e) {
+                    //인터럽트가 발생하면 종료
+                    System.out.println("exit!");
+                    return;
+                }
+            }
+        });
+        sleepTest.start();
+
+        //메인 스레드 3초뒤 sleepTest스레드를 인터럽트한다
+        Thread.sleep(3000L);
+        sleepTest.interrupt();
     }
 
     private static class MyThread extends Thread {
