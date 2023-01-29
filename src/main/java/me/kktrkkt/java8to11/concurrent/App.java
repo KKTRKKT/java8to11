@@ -1,5 +1,7 @@
 package me.kktrkkt.java8to11.concurrent;
 
+import java.time.LocalDateTime;
+
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
@@ -39,8 +41,23 @@ public class App {
         sleepTest.start();
 
         //메인 스레드 3초뒤 sleepTest스레드를 인터럽트한다
-        Thread.sleep(3000L);
+//        Thread.sleep(3000L);
         sleepTest.interrupt();
+
+        Thread joinTest = new Thread(()->{
+            try {
+                Thread.sleep(2000L);
+            } catch (InterruptedException e) {
+                throw new IllegalStateException();
+            }
+        });
+        joinTest.start();
+
+        //join을 호출하면 해당 스레드가 종료될때까지 기다린다.
+        System.out.println(LocalDateTime.now());
+        joinTest.join();
+        System.out.println(LocalDateTime.now());
+
     }
 
     private static class MyThread extends Thread {
