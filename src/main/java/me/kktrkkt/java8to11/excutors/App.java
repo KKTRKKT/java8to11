@@ -10,7 +10,18 @@ public class App {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 //        baseRunnable();
 //        baseCallable();
+        System.out.println("---------------------CompletableFuture--------------------------");
 
+        CompletableFuture<String> stringCompletableFuture = new CompletableFuture<>();
+        // 작업이 완료되지 않을 경우 설정값
+        stringCompletableFuture.complete("hello");
+        System.out.println(stringCompletableFuture.get());
+
+        // 위랑 똑같다
+        stringCompletableFuture = CompletableFuture.completedFuture("Hello");
+        System.out.println(stringCompletableFuture.get());
+
+        
     }
 
     private static void baseCallable() throws InterruptedException, ExecutionException {
