@@ -1,14 +1,36 @@
 package me.kktrkkt.java8to11.excutors;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import ch.qos.logback.core.joran.conditional.ThenOrElseActionBase;
+
+import java.util.concurrent.*;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 //        baseRunnable();
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        // Callable을 통해 스레드 작업 후 결과값을 얻을 수 있다.
+        Callable<String> hello = () -> {
+            Thread.sleep(2000);
+            return "Hello";
+        };
+        Future<String> helloFuture = executorService.submit(hello);
+
+        // isDone 작업이 종료되었는지 확인한다
+        System.out.println(helloFuture.isDone());
+        System.out.println("Started!");
+
+        // 블로킹, 값을 가져올때까지 메인스레드는 대기한다.
+        helloFuture.get();
+        // 실행중인 작업을 중단한다. false면 실행중인 작업 마치고 중단, true면 바로 중단
+//        helloFuture.cancel(false);
+        // 실행도중 cancel이 되면 결과값을 가져올 수 없으므로 Exception이 발생한다.(true, false 모두)
+//        helloFuture.get();
+
+        System.out.println("End!");
+        System.out.println(helloFuture.isDone());
+
+
     }
 
     private static void baseRunnable() {
