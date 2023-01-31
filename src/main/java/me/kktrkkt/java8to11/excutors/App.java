@@ -9,6 +9,11 @@ public class App {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 //        baseRunnable();
+//        baseCallable();
+
+    }
+
+    private static void baseCallable() throws InterruptedException, ExecutionException {
         System.out.println("---------------------Callable과 Future--------------------------");
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         // Callable을 통해 스레드 작업 후 결과값을 얻을 수 있다.
@@ -25,7 +30,7 @@ public class App {
         // 실행중인 작업을 중단한다. false면 실행중인 작업 마치고 중단, true면 바로 중단
 //        helloFuture.cancel(false);
         // 실행도중 cancel이 되면 결과값을 가져올 수 없으므로 Exception이 발생한다.(true, false 모두)
-//        helloFuture.get(); 
+//        helloFuture.get();
 
         System.out.println("End!");
         System.out.println(helloFuture.isDone());
@@ -52,7 +57,6 @@ public class App {
         String any = executorsService2.invokeAny(Arrays.asList(hello, java, mango));
         System.out.println(any);
         System.out.println(LocalDateTime.now());
-
     }
 
     private static Callable<String> getCallable(long millis, String hello1) {
