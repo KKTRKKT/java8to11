@@ -32,6 +32,9 @@ public class App {
         // 리턴하는 콜백함수 thenApply
         String supplyAsyncUpper = supplyAsync.thenApply(String::toUpperCase).get();
         System.out.println(supplyAsyncUpper);
+
+        // 리턴이 없는 콜백함수 thenAccept
+        supplyAsync.thenAccept(r -> System.out.println(r.toUpperCase())).get();
     }
 
     private static void baseCallable() throws InterruptedException, ExecutionException {
