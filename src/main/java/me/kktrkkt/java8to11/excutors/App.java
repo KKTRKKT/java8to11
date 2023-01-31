@@ -21,7 +21,9 @@ public class App {
         stringCompletableFuture = CompletableFuture.completedFuture("Hello");
         System.out.println(stringCompletableFuture.get());
 
-        
+        // 작업의 리턴값이 없을 경우 runAsync
+        CompletableFuture<Void> runAsync = CompletableFuture.runAsync(getRunnable("runAsync"));
+        runAsync.get();
     }
 
     private static void baseCallable() throws InterruptedException, ExecutionException {
