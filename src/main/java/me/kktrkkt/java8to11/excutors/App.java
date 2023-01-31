@@ -28,6 +28,10 @@ public class App {
         // 작업의 리턴값이 있을 경우 supplyAsync
         CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(() -> "supplyAsync" + Thread.currentThread().getName());
         System.out.println(supplyAsync.get());
+
+        // 리턴하는 콜백함수 thenApply
+        String supplyAsyncUpper = supplyAsync.thenApply(String::toUpperCase).get();
+        System.out.println(supplyAsyncUpper);
     }
 
     private static void baseCallable() throws InterruptedException, ExecutionException {
