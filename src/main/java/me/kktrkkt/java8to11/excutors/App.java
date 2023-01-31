@@ -1,19 +1,19 @@
 package me.kktrkkt.java8to11.excutors;
 
-import ch.qos.logback.core.joran.conditional.ThenOrElseActionBase;
-
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.*;
 
 public class App {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 //        baseRunnable();
+        System.out.println("---------------------Callable과 Future--------------------------");
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         // Callable을 통해 스레드 작업 후 결과값을 얻을 수 있다.
-        Callable<String> hello = () -> {
-            Thread.sleep(2000);
-            return "Hello";
-        };
+        Callable<String> hello = getCallable(2000L, "Hello");
+
         Future<String> helloFuture = executorService.submit(hello);
 
         // isDone 작업이 종료되었는지 확인한다
@@ -25,12 +25,31 @@ public class App {
         // 실행중인 작업을 중단한다. false면 실행중인 작업 마치고 중단, true면 바로 중단
 //        helloFuture.cancel(false);
         // 실행도중 cancel이 되면 결과값을 가져올 수 없으므로 Exception이 발생한다.(true, false 모두)
-//        helloFuture.get();
+//        helloFuture.get(); 
 
         System.out.println("End!");
         System.out.println(helloFuture.isDone());
 
+        System.out.println("---------------------invokeAll--------------------------");
+        Callable<String> java = getCallable(3000L, "Java");
+        Callable<String> mango = getCallable(1000L, "Mango");
 
+        System.out.println(LocalDateTime.now());
+        // invokeAll은 리스트에 있는 모든 작업이 종료될때까지 기다린다.
+        List<Future<String>> futures = executorService.invokeAll(Arrays.asList(hello, java, mango));
+        for (Future<String> future : futures) {
+            System.out.println(future.get());
+        }
+        System.out.println(LocalDateTime.now());
+
+    }
+
+    private static Callable<String> getCallable(long millis, String hello1) {
+        Callable<String> hello = () -> {
+            Thread.sleep(millis);
+            return hello1;
+        };
+        return hello;
     }
 
     private static void baseRunnable() {
