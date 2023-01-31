@@ -42,6 +42,17 @@ public class App {
         }
         System.out.println(LocalDateTime.now());
 
+        System.out.println("---------------------invokeAny--------------------------");
+
+        // 3개 작업을 동시에 실행하기 위해서 3개의 스레드 사용
+        ExecutorService executorsService2 = Executors.newFixedThreadPool(3);
+
+        System.out.println(LocalDateTime.now());
+        // invokeAny는 모든 작업중 가장 빨리 종료되는 작업의 결과를 반환한다.
+        String any = executorsService2.invokeAny(Arrays.asList(hello, java, mango));
+        System.out.println(any);
+        System.out.println(LocalDateTime.now());
+
     }
 
     private static Callable<String> getCallable(long millis, String hello1) {
