@@ -24,6 +24,10 @@ public class App {
         // 작업의 리턴값이 없을 경우 runAsync
         CompletableFuture<Void> runAsync = CompletableFuture.runAsync(getRunnable("runAsync"));
         runAsync.get();
+
+        // 작업의 리턴값이 있을 경우 supplyAsync
+        CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(() -> "supplyAsync" + Thread.currentThread().getName());
+        System.out.println(supplyAsync.get());
     }
 
     private static void baseCallable() throws InterruptedException, ExecutionException {
