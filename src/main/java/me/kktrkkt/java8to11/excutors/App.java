@@ -8,6 +8,10 @@ import java.util.concurrent.TimeUnit;
 public class App {
 
     public static void main(String[] args) {
+//        baseRunnable();
+    }
+
+    private static void baseRunnable() {
         System.out.println("---------------------ExecutorService--------------------------");
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.submit(getRunnable("Hello "));
