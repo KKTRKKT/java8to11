@@ -35,6 +35,11 @@ public class App {
 
         // 리턴이 없는 콜백함수 thenAccept
         supplyAsync.thenAccept(r -> System.out.println(r.toUpperCase())).get();
+
+        // 결과 상관없이 실행 thenRun
+        supplyAsync.thenRun(()->{
+            System.out.println("isDone! "+Thread.currentThread().getName());
+        }).get();
     }
 
     private static void baseCallable() throws InterruptedException, ExecutionException {
