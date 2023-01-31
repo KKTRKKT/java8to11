@@ -40,6 +40,11 @@ public class App {
         supplyAsync.thenRun(()->{
             System.out.println("isDone! "+Thread.currentThread().getName());
         }).get();
+
+        // executor를 명시해서 사용가능, then*Async
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        supplyAsync.thenRunAsync(()-> System.out.println(Thread.currentThread().getName()), executorService);
+        executorService.shutdown();
     }
 
     private static void baseCallable() throws InterruptedException, ExecutionException {
