@@ -2,10 +2,13 @@ package me.kktrkkt.java8to11.excutors;
 
 import ch.qos.logback.core.joran.conditional.ThenOrElseActionBase;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class App {
 
@@ -34,6 +37,31 @@ public class App {
         // CompletableFuture의 각각의 결과값을 받아서 계산한다.
         CompletableFuture<String> helloWorld2 = hello.thenCombine(world, (h, w) -> h + " " + w);
         System.out.println(helloWorld2.get());
+
+        System.out.println("---------------------allOf--------------------------");
+
+        CompletableFuture<Integer> hundred = CompletableFuture.supplyAsync(() -> {
+            System.out.println("Hundred " + Thread.currentThread().getName());
+            return 100;
+        });
+
+        // 작업결과는 항상 null이다.
+        CompletableFuture<Void> allOf = CompletableFuture.allOf(hello, world, hundred)
+                        .thenAccept((r)->{
+                            System.out.println(r + " " + hello.join() + " " + world.join()  + " " + hundred.join());
+                        });
+        System.out.println(allOf.get());
+
+        System.out.println("");
+
+        // 논블로킹으로 모든 작업들의 결과물들을 합친다.
+        CompletableFuture[] futures = Stream.of().toArray(CompletableFuture[]::new);
+        CompletableFuture<List<Object>> resultList = CompletableFuture.allOf(futures)
+                .thenApply(v -> Arrays.stream(futures)
+                        .map(CompletableFuture::join)
+                        .collect(Collectors.toList()));
+
+        resultList.get().forEach(System.out::println);
 
     }
 
