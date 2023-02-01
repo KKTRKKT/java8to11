@@ -69,6 +69,22 @@ public class App {
         CompletableFuture<Object> anyOf = CompletableFuture.anyOf(hello, world, hundred)
                 .thenApply(r -> r);
         System.out.println(anyOf.get());
+
+        System.out.println("---------------------exceptionally--------------------------");
+        boolean throwError = true;
+
+        // 예외 처리
+        CompletableFuture<String> kktrkkt = CompletableFuture.supplyAsync(() -> {
+            if (throwError) {
+                throw new IllegalStateException();
+            }
+            return "KKTRKKT";
+        }).exceptionally(ex -> {
+            System.out.println(ex);
+            return "error";
+        });
+
+        System.out.println(kktrkkt.get());
     }
 
     private static CompletableFuture<String> getWorld(String message) {
