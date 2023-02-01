@@ -10,6 +10,10 @@ public class App {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 //        baseRunnable();
 //        baseCallable();
+//        completableFuture1();
+    }
+
+    private static void completableFuture1() throws InterruptedException, ExecutionException {
         System.out.println("---------------------CompletableFuture--------------------------");
 
         CompletableFuture<String> stringCompletableFuture = new CompletableFuture<>();
