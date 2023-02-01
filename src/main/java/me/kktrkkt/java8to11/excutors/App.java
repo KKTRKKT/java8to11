@@ -63,6 +63,12 @@ public class App {
 
         resultList.get().forEach(System.out::println);
 
+        System.out.println("---------------------anyOf--------------------------");
+
+        // 가장 빨리 끝나는 작업의 결과물 출력
+        CompletableFuture<Object> anyOf = CompletableFuture.anyOf(hello, world, hundred)
+                .thenApply(r -> r);
+        System.out.println(anyOf.get());
     }
 
     private static CompletableFuture<String> getWorld(String message) {
