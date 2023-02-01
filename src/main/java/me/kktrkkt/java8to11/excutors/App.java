@@ -11,6 +11,25 @@ public class App {
 //        baseRunnable();
 //        baseCallable();
 //        completableFuture1();
+        System.out.println("---------------------thenCompose--------------------------");
+
+        CompletableFuture<String> hello = CompletableFuture.supplyAsync(() -> {
+            System.out.println(Thread.currentThread().getName());
+            return "Hello";
+        });
+
+        // CompletableFuture을 연결해서 사용한다.
+        CompletableFuture<String> helloWorld = hello.thenCompose(App::getWorld);
+
+        System.out.println(helloWorld.get());
+
+    }
+
+    private static CompletableFuture<String> getWorld(String message) {
+        return CompletableFuture.supplyAsync(() -> {
+            System.out.println(Thread.currentThread().getName());
+            return message + " World";
+        });
     }
 
     private static void completableFuture1() throws InterruptedException, ExecutionException {
