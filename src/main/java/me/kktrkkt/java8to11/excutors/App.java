@@ -85,6 +85,24 @@ public class App {
         });
 
         System.out.println(kktrkkt.get());
+
+        System.out.println("---------------------handle--------------------------");
+
+        // 범용적인 예외 처리
+        CompletableFuture<String> handle = CompletableFuture.supplyAsync(()->{
+            if(false){
+                throw new IllegalStateException();
+            }
+            return "anything";
+        }).handle((result, ex) -> {
+            if (ex != null) {
+                System.out.println(ex);
+                return "error";
+            }
+            System.out.println(result);
+            return result;
+        });
+        System.out.println(handle.get());
     }
 
     private static CompletableFuture<String> getWorld(String message) {
