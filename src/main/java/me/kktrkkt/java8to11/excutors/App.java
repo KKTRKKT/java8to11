@@ -1,5 +1,7 @@
 package me.kktrkkt.java8to11.excutors;
 
+import ch.qos.logback.core.joran.conditional.ThenOrElseActionBase;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +16,7 @@ public class App {
         System.out.println("---------------------thenCompose--------------------------");
 
         CompletableFuture<String> hello = CompletableFuture.supplyAsync(() -> {
-            System.out.println(Thread.currentThread().getName());
+            System.out.println("Hello " + Thread.currentThread().getName());
             return "Hello";
         });
 
@@ -25,7 +27,7 @@ public class App {
         System.out.println("---------------------thenCombine--------------------------");
 
         CompletableFuture<String> world = CompletableFuture.supplyAsync(() -> {
-            System.out.println(Thread.currentThread().getName());
+            System.out.println("World " + Thread.currentThread().getName());
             return "World";
         });
 
@@ -37,7 +39,7 @@ public class App {
 
     private static CompletableFuture<String> getWorld(String message) {
         return CompletableFuture.supplyAsync(() -> {
-            System.out.println(Thread.currentThread().getName());
+            System.out.println(message + " World " + Thread.currentThread().getName());
             return message + " World";
         });
     }
