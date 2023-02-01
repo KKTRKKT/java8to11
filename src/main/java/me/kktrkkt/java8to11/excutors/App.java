@@ -20,8 +20,18 @@ public class App {
 
         // CompletableFuture을 연결해서 사용한다.
         CompletableFuture<String> helloWorld = hello.thenCompose(App::getWorld);
-
         System.out.println(helloWorld.get());
+
+        System.out.println("---------------------thenCombine--------------------------");
+
+        CompletableFuture<String> world = CompletableFuture.supplyAsync(() -> {
+            System.out.println(Thread.currentThread().getName());
+            return "World";
+        });
+
+        // CompletableFuture의 각각의 결과값을 받아서 계산한다.
+        CompletableFuture<String> helloWorld2 = hello.thenCombine(world, (h, w) -> h + " " + w);
+        System.out.println(helloWorld2.get());
 
     }
 
