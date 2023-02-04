@@ -41,10 +41,14 @@ public class App {
         System.out.println("---------------------allOf--------------------------");
 
         CompletableFuture<Integer> hundred = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(3000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("Hundred " + Thread.currentThread().getName());
             return 100;
         });
-
         // 작업결과는 항상 null이다.
         CompletableFuture<Void> allOf = CompletableFuture.allOf(hello, world, hundred)
                         .thenAccept((r)->{
@@ -55,7 +59,7 @@ public class App {
         System.out.println("");
 
         // 논블로킹으로 모든 작업들의 결과물들을 합친다.
-        CompletableFuture[] futures = Stream.of().toArray(CompletableFuture[]::new);
+        CompletableFuture[] futures = Stream.of(hello, world, hundred).toArray(CompletableFuture[]::new);
         CompletableFuture<List<Object>> resultList = CompletableFuture.allOf(futures)
                 .thenApply(v -> Arrays.stream(futures)
                         .map(CompletableFuture::join)
