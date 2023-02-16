@@ -36,5 +36,7 @@ public class App {
             }
         });
 
+        System.out.println("--------------------------getMethod-------------------------------");
+        Arrays.stream(bookClass.getMethods()).forEach(System.out::println);
     }
 }
