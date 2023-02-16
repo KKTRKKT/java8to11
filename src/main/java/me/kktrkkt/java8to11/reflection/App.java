@@ -1,10 +1,17 @@
 package me.kktrkkt.java8to11.reflection;
 
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws ClassNotFoundException {
 //        aboutClass();
+        System.out.println("--------------------------getModifiers-------------------------------");
+        // 변수의 접근제한자를 구분할 수 있다.
+        Arrays.stream(Book.class.getDeclaredFields())
+                .filter(f->Modifier.isPrivate(f.getModifiers()))
+                .forEach(System.out::println);
+
     }
 
     private static void aboutClass() throws ClassNotFoundException {
