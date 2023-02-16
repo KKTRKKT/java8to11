@@ -12,6 +12,14 @@ public class App {
                 .filter(f->Modifier.isPrivate(f.getModifiers()))
                 .forEach(System.out::println);
 
+        System.out.println("--------------------------getParameterTypes-------------------------------");
+        // 매개변수를 가져올 수 있다.
+        Arrays.stream(Book.class.getConstructors()).forEach(f->{
+            Class<?>[] parameterTypes = f.getParameterTypes();
+            System.out.println(f);
+            Arrays.stream(parameterTypes).forEach(System.out::println);
+        });
+
     }
 
     private static void aboutClass() throws ClassNotFoundException {
