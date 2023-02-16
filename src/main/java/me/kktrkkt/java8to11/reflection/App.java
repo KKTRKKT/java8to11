@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws ClassNotFoundException {
+        aboutClass();
+    }
+
+    private static void aboutClass() throws ClassNotFoundException {
         // 클래스 로딩이 끝나면 클래스 타입의 인스턴스를 만들어서 힙에 저장됨
         System.out.println("--------------------------class 가져오기-------------------------------");
         // 타입에서 가져오는 방법
