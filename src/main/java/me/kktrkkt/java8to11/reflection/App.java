@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws ClassNotFoundException {
-        aboutClass();
+//        aboutClass();
     }
 
     private static void aboutClass() throws ClassNotFoundException {
