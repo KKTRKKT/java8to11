@@ -43,5 +43,11 @@ public class App {
         System.out.println("--------------------------getConstructors-------------------------------");
         // 생성자를 가져온다.
         Arrays.stream(bookClass.getConstructors()).forEach(System.out::println);
+
+        System.out.println("--------------------------getSuperclass-------------------------------");
+        // 상속받은 수퍼 클래스를 가져온다.
+        Class<? super MyBook> superclass = MyBook.class.getSuperclass();
+        System.out.println(superclass);
+
     }
 }
