@@ -37,6 +37,7 @@ public class App {
         });
 
         System.out.println("--------------------------getMethod-------------------------------");
+        // 상위에 메소드들까지 모두 가져온다.
         Arrays.stream(bookClass.getMethods()).forEach(System.out::println);
     }
 }
