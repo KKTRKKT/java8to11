@@ -23,5 +23,18 @@ public class App {
         System.out.println("--------------------------getDeclaredFields-------------------------------");
         // 접근지시자 제한없이 모든 변수들을 가져온다.
         Arrays.stream(bookClass.getDeclaredFields()).forEach(System.out::println);
+
+        System.out.println("--------------------------필드 값 가져오기-------------------------------");
+
+        Arrays.stream(bookClass.getDeclaredFields()).forEach(f->{
+            try {
+                // 모든 변수의 접근을 허용해준다. private한 변수를 접근할 때 꼭 true로 설정해야한다.
+                f.setAccessible(true);
+                System.out.printf("%s, %s\n", f, f.get(book));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 }
