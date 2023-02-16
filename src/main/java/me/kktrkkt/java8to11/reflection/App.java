@@ -20,6 +20,14 @@ public class App {
             Arrays.stream(parameterTypes).forEach(System.out::println);
         });
 
+        System.out.println("--------------------------getReturnType-------------------------------");
+        // 리턴 타입을 가져올 수 있다.
+        Arrays.stream(Book.class.getDeclaredMethods()).forEach(f->{
+            Class<?> returnType = f.getReturnType();
+            System.out.println(f);
+            System.out.println(returnType);
+        });
+
     }
 
     private static void aboutClass() throws ClassNotFoundException {
