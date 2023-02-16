@@ -20,5 +20,8 @@ public class App {
         // public한 변수들만 가져온다.
         Arrays.stream(bookClass.getFields()).forEach(System.out::println);
 
+        System.out.println("--------------------------getDeclaredFields-------------------------------");
+        // 접근지시자 제한없이 모든 변수들을 가져온다.
+        Arrays.stream(bookClass.getDeclaredFields()).forEach(System.out::println);
     }
 }
