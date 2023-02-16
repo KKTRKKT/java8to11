@@ -16,5 +16,9 @@ public class App {
         // FQCN(Full Qualified Class Name)으로 찾는 방법
         Class<?> forName = Class.forName("me.kktrkkt.java8to11.reflection.Book");
 
+        System.out.println("--------------------------getFields-------------------------------");
+        // public한 변수들만 가져온다.
+        Arrays.stream(bookClass.getFields()).forEach(System.out::println);
+
     }
 }
