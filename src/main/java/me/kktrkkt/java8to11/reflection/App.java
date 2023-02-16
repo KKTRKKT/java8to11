@@ -49,5 +49,8 @@ public class App {
         Class<? super MyBook> superclass = MyBook.class.getSuperclass();
         System.out.println(superclass);
 
+        System.out.println("--------------------------getInterfaces-------------------------------");
+        // 구현한 인터페이스를 모두 가져온다.
+        Arrays.stream(MyBook.class.getInterfaces()).forEach(System.out::println);
     }
 }
