@@ -1,7 +1,9 @@
 package me.kktrkkt.java8to11.reflection;
 
+@MyAnnotation
 public class Book {
 
+    @MyAnnotation
     private static String b = "Book";
 
     private static final String c = "Book";
@@ -12,6 +14,7 @@ public class Book {
 
     protected String e = "e";
 
+//    @MyAnnotation
     public Book() {
 
     }
