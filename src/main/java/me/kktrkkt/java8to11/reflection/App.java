@@ -6,6 +6,16 @@ import java.util.Arrays;
 public class App {
     public static void main(String[] args) throws ClassNotFoundException {
 //        aboutClass();
+//        aboutFiledAndMethod();
+
+        // 기본적으로 annotation은 주석과 같은 취급을 받는다.
+        // 따라서 바이트 코드 로딩 후에 메모리 영역에 남아있지 않는다.
+        // 런타임에 애노테이션 정보를 읽어오기 위해서는 @Retention(RetentionPolicy.RUNTIME)을 추가해줘야한다.
+        Arrays.stream(Book.class.getAnnotations()).forEach(System.out::println);
+
+    }
+
+    private static void aboutFiledAndMethod() {
         System.out.println("--------------------------getModifiers-------------------------------");
         // 변수의 접근제한자를 구분할 수 있다.
         Arrays.stream(Book.class.getDeclaredFields())
