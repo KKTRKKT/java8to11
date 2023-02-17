@@ -8,11 +8,16 @@ public class App {
 //        aboutClass();
 //        aboutFiledAndMethod();
 
+        System.out.println("--------------------------getAnnotations-------------------------------");
         // 기본적으로 annotation은 주석과 같은 취급을 받는다.
         // 따라서 바이트 코드 로딩 후에 메모리 영역에 남아있지 않는다.
         // 런타임에 애노테이션 정보를 읽어오기 위해서는 @Retention(RetentionPolicy.RUNTIME)을 추가해줘야한다.
         Arrays.stream(Book.class.getAnnotations()).forEach(System.out::println);
 
+        System.out.println("--------------------------@Inherited-------------------------------");
+        // 애노테이션은 상속이 가능하다.
+        // 인터페이스는 상속 불가능.
+        Arrays.stream(MyBook.class.getAnnotations()).forEach(System.out::println);
     }
 
     private static void aboutFiledAndMethod() {

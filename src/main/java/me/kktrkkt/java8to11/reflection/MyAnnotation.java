@@ -1,12 +1,10 @@
 package me.kktrkkt.java8to11.reflection;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})
+@Inherited
 public @interface MyAnnotation {
 
     String name() default "kktrkkt";
