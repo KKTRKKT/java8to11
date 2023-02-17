@@ -1,9 +1,10 @@
 package me.kktrkkt.java8to11.reflection;
 
-@MyAnnotation
+// 애노테이션 value가 있으면, value에  자동 매핑된다
+@MyAnnotation("Book")
 public class Book {
 
-    @MyAnnotation
+    @MyAnnotation("String")
     private static String b = "Book";
 
     private static final String c = "Book";

@@ -7,6 +7,8 @@ import java.lang.annotation.*;
 @Inherited
 public @interface MyAnnotation {
 
+    String value();
+
     String name() default "kktrkkt";
 
     int number() default 100;
