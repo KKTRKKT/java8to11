@@ -18,6 +18,11 @@ public class App {
         // 애노테이션은 상속이 가능하다.
         // 인터페이스는 상속 불가능.
         Arrays.stream(MyBook.class.getAnnotations()).forEach(System.out::println);
+
+        System.out.println("--------------------------getDeclearedAnnotaion-------------------------------");
+        // 상속받은 애노테이션을 제외하고 출력할 때 사용한다.
+        Arrays.stream(MyBook.class.getDeclaredAnnotations()).forEach(System.out::println);
+
     }
 
     private static void aboutFiledAndMethod() {
