@@ -24,8 +24,22 @@ public class App {
         Arrays.stream(MyBook.class.getDeclaredAnnotations()).forEach(System.out::println);
 
         System.out.println("--------------------------필드의 모든 annotaion값 가져오기-------------------------------");
+
+        // 모든 필드의 모든 annotaion 값을 출력하는 방법
         Arrays.stream(Book.class.getDeclaredFields()).forEach(f->{
             Arrays.stream(f.getAnnotations()).forEach(System.out::println);
+        });
+
+        // 특정 애노테이션의 값만 출력하는 방법
+        Arrays.stream(Book.class.getDeclaredFields()).forEach(f->{
+            Arrays.stream(f.getAnnotations()).forEach(a ->{
+                if(a instanceof MyAnnotation){
+                    MyAnnotation myAnnotation = (MyAnnotation) a;
+                    System.out.println(myAnnotation.value());
+                    System.out.println(myAnnotation.name());
+                    System.out.println(myAnnotation.number());
+                }
+            });
         });
     }
 
