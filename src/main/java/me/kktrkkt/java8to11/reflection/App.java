@@ -23,6 +23,10 @@ public class App {
         // 상속받은 애노테이션을 제외하고 출력할 때 사용한다.
         Arrays.stream(MyBook.class.getDeclaredAnnotations()).forEach(System.out::println);
 
+        System.out.println("--------------------------필드의 모든 annotaion값 가져오기-------------------------------");
+        Arrays.stream(Book.class.getDeclaredFields()).forEach(f->{
+            Arrays.stream(f.getAnnotations()).forEach(System.out::println);
+        });
     }
 
     private static void aboutFiledAndMethod() {
