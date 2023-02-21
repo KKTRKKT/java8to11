@@ -1,12 +1,13 @@
 package me.kktrkkt.java8to11.reflection;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class App {
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchFieldException {
 //        aboutClass();
 //        aboutFiledAndMethod();
 //        aboutAnnotaion();
@@ -16,6 +17,22 @@ public class App {
         Constructor<Book> constructor = Book.class.getConstructor();
         Book book = constructor.newInstance();
         System.out.println(book);
+
+        System.out.println("--------------------------필드값 조작-------------------------------");
+        // static 필드 값 변경하기
+        Field b = Book.class.getDeclaredField("b");
+        b.setAccessible(true);
+        // 특정 인스턴스의 값을 가져오기 위해서는 get에 매개변수로 인스턴스를 전달해야한다.
+        // static인 경우에는 null을 전달한다.
+        System.out.println(b.get(null));
+        b.set(null, "BOOK");
+        System.out.println(b.get(null));
+
+        // 인스턴스의 필드 값 변경하기
+        Field d = Book.class.getDeclaredField("d");
+        System.out.println(d.get(book));
+        b.set(book, "d");
+        System.out.println(b.get(book));
 
     }
 
