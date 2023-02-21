@@ -1,9 +1,6 @@
 package me.kktrkkt.java8to11.reflection;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 public class App {
@@ -12,13 +9,13 @@ public class App {
 //        aboutFiledAndMethod();
 //        aboutAnnotaion();
 
-        System.out.println("--------------------------인스턴스 생성-------------------------------");
+        System.out.println("--------------------------newInstance-------------------------------");
         // class의 newInstance는 Deprecated되었으므로, 생성자를 이용해 인스턴스를 생성한다.
         Constructor<Book> constructor = Book.class.getConstructor();
         Book book = constructor.newInstance();
         System.out.println(book);
 
-        System.out.println("--------------------------필드값 조작-------------------------------");
+        System.out.println("--------------------------get, set-------------------------------");
         // static 필드 값 변경하기
         Field b = Book.class.getDeclaredField("b");
         b.setAccessible(true);
