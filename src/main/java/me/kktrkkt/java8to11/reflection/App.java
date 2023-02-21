@@ -1,13 +1,25 @@
 package me.kktrkkt.java8to11.reflection;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class App {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 //        aboutClass();
 //        aboutFiledAndMethod();
+//        aboutAnnotaion();
 
+        System.out.println("--------------------------인스턴스 생성-------------------------------");
+        // class의 newInstance는 Deprecated되었으므로, 생성자를 이용해 인스턴스를 생성한다.
+        Constructor<Book> constructor = Book.class.getConstructor();
+        Book book = constructor.newInstance();
+        System.out.println(book);
+
+    }
+
+    private static void aboutAnnotaion() {
         System.out.println("--------------------------getAnnotations-------------------------------");
         // 기본적으로 annotation은 주석과 같은 취급을 받는다.
         // 따라서 바이트 코드 로딩 후에 메모리 영역에 남아있지 않는다.
