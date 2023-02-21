@@ -31,6 +31,11 @@ public class App {
         b.set(book, "d");
         System.out.println(b.get(book));
 
+        System.out.println("--------------------------invoke-------------------------------");
+        // 메소드를 실행시킨다.
+        Method sum = Book.class.getDeclaredMethod("sum", String.class, String.class);
+        String invoke = (String) sum.invoke(book, "hello", "world");
+        System.out.println(invoke);
     }
 
     private static void aboutAnnotaion() {

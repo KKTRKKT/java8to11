@@ -37,4 +37,8 @@ public class Book {
     public int h() {
         return 100;
     }
+
+    public static String sum(String left, String right){
+        return left + right;
+    }
 }
