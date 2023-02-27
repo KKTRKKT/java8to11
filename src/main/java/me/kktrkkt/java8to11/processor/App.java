@@ -5,6 +5,5 @@ public class App {
     public static void main(String[] args) {
 //        Moja moja = new MagicMoja();
 //        moja.pullOut();
-        new MyMoja();
     }
 }
