@@ -5,5 +5,5 @@ import me.kktrkkt.Magic;
 @Magic
 public interface Moja {
 
-    void pullOut();
+    String pullOut();
 }
