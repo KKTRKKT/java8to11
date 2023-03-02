@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class Junit5DefaultAnnotaionTest {
 
     @Test
+    @DisplayName("생성_1")
     void create1() {
         System.out.println("create1");
     }
