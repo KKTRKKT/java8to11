@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class Junit5DefaultAnnotaionTest {
 
     @Test
@@ -13,7 +14,7 @@ class Junit5DefaultAnnotaionTest {
 
     @Test
     @Disabled
-    void create2() {
+    void create_2() {
         System.out.println("create2");
     }
 
