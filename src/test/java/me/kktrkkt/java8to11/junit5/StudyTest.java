@@ -24,7 +24,7 @@ class StudyTest {
                 () -> assertTimeout(Duration.ofMillis(100), ()->{
                     Thread.sleep(200);
                 }),
-                // timeout이 끝나면 즉시 종료된다.
+                // timeout이 끝나면 즉시 종료된다. 실행 로직에 ThreadLocal 로직이 있을시 문제가 발생 할 수 있음
                 () -> assertTimeoutPreemptively(Duration.ofMillis(100), ()->{
                     Thread.sleep(200);
                 })
