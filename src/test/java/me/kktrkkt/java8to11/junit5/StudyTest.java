@@ -63,4 +63,19 @@ class StudyTest {
             assertNotNull(study);
         });
     }
+
+    @Test
+    @EnabledOnOs({OS.MAC, OS.LINUX})
+    void enabled_on_os() {
+        Study study = new Study(10);
+        assertNotNull(study);
+    }
+
+    @Test
+    @DisabledOnOs({OS.MAC, OS.LINUX})
+    void disabled_on_os() {
+        Study study = new Study(10);
+        assertNotNull(study);
+    }
+
 }
