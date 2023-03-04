@@ -85,4 +85,17 @@ class StudyTest {
         assertNotNull(study);
     }
 
+    @Test
+    @EnabledIfEnvironmentVariable(named = "TEST_ENV", matches = "LOCAL")
+    void enabled_if_environment_variable_local() {
+        Study study = new Study(10);
+        assertNotNull(study);
+    }
+
+    @Test
+    @EnabledIfEnvironmentVariable(named = "TEST_ENV", matches = "kktrkkt")
+    void enabled_if_environment_variable_kktrkkt() {
+        Study study = new Study(10);
+        assertNotNull(study);
+    }
 }
