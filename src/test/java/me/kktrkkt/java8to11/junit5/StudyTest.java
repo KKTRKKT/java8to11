@@ -2,10 +2,12 @@ package me.kktrkkt.java8to11.junit5;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 class StudyTest {
 
@@ -32,5 +34,15 @@ class StudyTest {
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> new Study(0));
         assertEquals("limit은 0보다 커야됩니다.", exception.getMessage());
+    }
+
+    @Test
+    void assume_true() {
+        String test_env = System.getenv("TEST_ENV");
+        System.out.println(test_env);
+        assumeTrue("LOCAL".equalsIgnoreCase(test_env));
+
+        Study study = new Study(10);
+        assertNotNull(study);
     }
 }
