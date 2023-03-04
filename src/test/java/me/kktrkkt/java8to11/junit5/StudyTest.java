@@ -45,4 +45,22 @@ class StudyTest {
         Study study = new Study(10);
         assertNotNull(study);
     }
+
+    @Test
+    void assuming_that() {
+        String test_env = System.getenv("TEST_ENV");
+        System.out.println(test_env);
+
+        assumingThat("LOCAL".equalsIgnoreCase(test_env), ()->{
+            System.out.println("local");
+            Study study = new Study(10);
+            assertNotNull(study);
+        });
+
+        assumingThat("kktrkkt".equalsIgnoreCase(test_env), ()->{
+            System.out.println("kktrkkt");
+            Study study = new Study(10);
+            assertNotNull(study);
+        });
+    }
 }
