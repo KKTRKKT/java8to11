@@ -78,4 +78,11 @@ class StudyTest {
         assertNotNull(study);
     }
 
+    @Test
+    @EnabledOnJre(JRE.JAVA_11)
+    void enabled_on_jre() {
+        Study study = new Study(10);
+        assertNotNull(study);
+    }
+
 }
