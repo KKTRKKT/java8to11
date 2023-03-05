@@ -18,11 +18,11 @@ class ParamTest {
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5})
-    void parameterized_test(@ConvertWith(StudyConverter.class) Study study) {
+    void simple_argument_converter_test(@ConvertWith(StudyArgumentConverter.class) Study study) {
         System.out.println(study);
     }
 
-    static class StudyConverter extends SimpleArgumentConverter{
+    static class StudyArgumentConverter extends SimpleArgumentConverter{
         @Override
         protected Object convert(Object source, Class<?> targetType) throws ArgumentConversionException {
             assertEquals(targetType, Study.class, "Can only convert Study");
