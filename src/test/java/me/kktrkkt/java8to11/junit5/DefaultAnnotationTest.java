@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
-class Junit5DefaultAnnotaionTest {
+class DefaultAnnotationTest {
 
     @Test
     @DisplayName("생성_1")
