@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ParamTest {
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] = {arguments} {displayName}")
     @ValueSource(strings = {"파란", "하늘", "꿈"})
     void parameterized_test(String value) {
         System.out.println(value);
