@@ -65,4 +65,10 @@ class ParamTest {
                 Arguments.of(new Study(2, "자바 스터디"))
         );
     }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/csv-file-source-test.csv")
+    void csv_file_source_test(@AggregateWith(StudyAggregator.class) Study study) {
+        System.out.println(study);
+    }
 }
