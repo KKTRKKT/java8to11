@@ -71,4 +71,10 @@ class ParamTest {
     void csv_file_source_test(@AggregateWith(StudyAggregator.class) Study study) {
         System.out.println(study);
     }
+
+    @ParameterizedTest
+    @EnumSource(StudyStatus.class)
+    void enum_source_test(StudyStatus status) {
+        System.out.println(status);
+    }
 }
