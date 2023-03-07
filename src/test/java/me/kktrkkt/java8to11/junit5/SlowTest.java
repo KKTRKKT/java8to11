@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Tag("slow")
 @Test
-public @interface SlowTag {
+public @interface SlowTest {
 }

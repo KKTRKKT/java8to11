@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class CustomTagTest {
 
-    @FastTag
+    @FastTest
     void fast_tag() {
         Study study = new Study(10);
         assertNotNull(study);
     }
 
-    @SlowTag
+    @SlowTest
     void slow_tag() {
         Study study = new Study(10);
         assertNotNull(study);

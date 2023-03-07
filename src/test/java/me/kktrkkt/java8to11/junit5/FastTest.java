@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Tag("fast")
 @Test
-public @interface FastTag {
+public @interface FastTest {
 }
