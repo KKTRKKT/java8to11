@@ -2,11 +2,15 @@ package me.kktrkkt.java8to11.junit5;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@ExtendWith(FindSlowTestExtension.class)
+//@ExtendWith(FindSlowTestExtension.class)
 class ExtendTest {
+
+    @RegisterExtension
+    static FindSlowTestExtension extension = new FindSlowTestExtension(3000L);
 
     @SlowTest
     void slow_test() throws InterruptedException {

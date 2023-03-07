@@ -8,8 +8,13 @@ import java.lang.reflect.Method;
 
 public class FindSlowTestExtension implements BeforeEachCallback, AfterEachCallback {
 
-    private static final long THRESHOLD = 1000L;
+    private final long threshold;
+
     private final String START_TIME = "START_TIME";
+
+    public FindSlowTestExtension(long threshold) {
+        this.threshold = threshold;
+    }
 
     @Override
     public void beforeEach(ExtensionContext context) throws Exception {
@@ -33,7 +38,7 @@ public class FindSlowTestExtension implements BeforeEachCallback, AfterEachCallb
         long startTime = (long) store.get(START_TIME);
         long duration = System.currentTimeMillis() - startTime;
 
-        if(duration > THRESHOLD && annotation == null){
+        if(duration > threshold && annotation == null){
             System.out.printf("Please Consider mark method [%s] with @SlowTest\n", name);
         }
     }
