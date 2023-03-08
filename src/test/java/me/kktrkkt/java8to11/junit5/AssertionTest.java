@@ -1,5 +1,7 @@
 package me.kktrkkt.java8to11.junit5;
 
+import me.kktrkkt.java8to11.junit5.domain.Study;
+import me.kktrkkt.java8to11.junit5.study.StudyStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

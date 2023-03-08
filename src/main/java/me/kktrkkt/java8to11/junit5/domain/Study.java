@@ -1,4 +1,6 @@
-package me.kktrkkt.java8to11.junit5;
+package me.kktrkkt.java8to11.junit5.domain;
+
+import me.kktrkkt.java8to11.junit5.study.StudyStatus;
 
 public class Study {
 
@@ -7,6 +9,8 @@ public class Study {
     private final int limit;
 
     private String name;
+
+    private Member owner;
 
     public Study(int limit, String name) {
         this.limit = limit;
@@ -30,6 +34,10 @@ public class Study {
 
     public String getName() {
         return name;
+    }
+
+    public void setOwner(Member member) {
+        this.owner = member;
     }
 
     @Override

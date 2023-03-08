@@ -1,5 +1,7 @@
 package me.kktrkkt.java8to11.junit5;
 
+import me.kktrkkt.java8to11.junit5.domain.Study;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class CustomTagTest {
