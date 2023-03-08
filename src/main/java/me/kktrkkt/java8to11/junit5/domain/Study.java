@@ -40,6 +40,10 @@ public class Study {
         this.owner = member;
     }
 
+    public Member getOwner() {
+        return owner;
+    }
+
     @Override
     public String toString() {
         return "Study{" +
