@@ -2,15 +2,19 @@ package me.kktrkkt.java8to11.junit5.domain;
 
 import me.kktrkkt.java8to11.junit5.study.StudyStatus;
 
+import java.time.LocalDateTime;
+
 public class Study {
 
-    final private StudyStatus status = StudyStatus.DRAFT;
+    private StudyStatus status = StudyStatus.DRAFT;
 
     private final int limit;
 
     private String name;
 
     private Member owner;
+
+    private LocalDateTime openedDateTime;
 
     public Study(int limit, String name) {
         this.limit = limit;
@@ -44,6 +48,10 @@ public class Study {
         return owner;
     }
 
+    public LocalDateTime getOpenedDateTime() {
+        return openedDateTime;
+    }
+
     @Override
     public String toString() {
         return "Study{" +
@@ -51,5 +59,10 @@ public class Study {
                 ", limit=" + limit +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void open() {
+        status = StudyStatus.OPENED;
+        openedDateTime = LocalDateTime.now();
     }
 }
