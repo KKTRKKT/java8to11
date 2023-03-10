@@ -16,6 +16,7 @@ public class FindSlowTestExtension implements BeforeEachCallback, AfterEachCallb
         this.threshold = threshold;
     }
 
+    // 각각의 테스트 실행전에 작업할 내용을 명시한다
     @Override
     public void beforeEach(ExtensionContext context) throws Exception {
         ExtensionContext.Store store = getStore(context);
@@ -25,9 +26,11 @@ public class FindSlowTestExtension implements BeforeEachCallback, AfterEachCallb
     private ExtensionContext.Store getStore(ExtensionContext context) {
         String className = context.getClass().getName();
         String methodName = context.getRequiredTestMethod().getName();
+        // 클래스명과 메소드명으로 store 조회해서, store가 있으면 반환하고 없으면 생성해서 반환한다.
         return context.getStore(ExtensionContext.Namespace.create(className, methodName));
     }
 
+    // 각각의 테스트 실행후에 작업할 내용을 명시한다
     @Override
     public void afterEach(ExtensionContext context) throws Exception {
         Method method = context.getRequiredTestMethod();
