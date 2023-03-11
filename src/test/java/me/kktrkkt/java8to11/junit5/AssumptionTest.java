@@ -13,6 +13,7 @@ class AssumptionTest {
     void assume_true() {
         String test_env = System.getenv("TEST_ENV");
         System.out.println(test_env);
+        // test_env가 "LOCAL"일 경우에만 다음 테스트가 진행된다
         assumeTrue("LOCAL".equalsIgnoreCase(test_env));
 
         Study study = new Study(10);
@@ -24,6 +25,7 @@ class AssumptionTest {
         String test_env = System.getenv("TEST_ENV");
         System.out.println(test_env);
 
+        // 조건이 true면 다음 로직을 실행한다.
         assumingThat("LOCAL".equalsIgnoreCase(test_env), ()->{
             System.out.println("local");
             Study study = new Study(10);

@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class CustomTagTest {
 
+    // 커스텀 태그로 여러 애노테이션을 조합할 수 있다.
     @FastTest
     void fast_tag() {
         Study study = new Study(10);

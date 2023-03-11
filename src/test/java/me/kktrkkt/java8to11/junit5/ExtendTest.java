@@ -6,9 +6,11 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+// 확장 모델을 선언적으로 추가하는 방식
 //@ExtendWith(FindSlowTestExtension.class)
 class ExtendTest {
 
+    // 확장 모델을 프로그래밍적으로 추가하는 방식
     @RegisterExtension
     static FindSlowTestExtension extension = new FindSlowTestExtension(3000L);
 
