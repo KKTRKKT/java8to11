@@ -44,7 +44,7 @@ public class StubTest {
     @Test
     void doReturn_test() {
         // findById에 1L 파라미터를 줄시 member를 반환하도록 설정한다
-        doReturn(Optional.of(member)).when(memberService).findById(any());
+        doReturn(Optional.of(member)).when(memberService).findById(1L);
 
         assertEquals(member, memberService.findById(1L).get());
         assertEquals(Optional.empty(), memberService.findById(2L));

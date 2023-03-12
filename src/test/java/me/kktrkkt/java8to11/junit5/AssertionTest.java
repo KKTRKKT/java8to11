@@ -22,7 +22,7 @@ class AssertionTest {
                 // lamda를 사용하면 항상 소모되던 메세지 비용을, 에러가 날때만 소모하게 된다.
                 () -> assertEquals(StudyStatus.DRAFT, study.getStatus(),
                     () -> "스터디를 처음 만들면 상태값이 DRAFT가 되어야 한다."),
-                () -> assertTrue(study.getLimit() > 0, "스터디 참석 인원은 0보다 커야 한다."),
+                () -> assertTrue(study.getLimitCount() > 0, "스터디 참석 인원은 0보다 커야 한다."),
                 () -> assertTimeout(Duration.ofMillis(100), ()->{
                     Thread.sleep(200);
                 }),

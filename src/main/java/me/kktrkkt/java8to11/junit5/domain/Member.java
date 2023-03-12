@@ -1,22 +1,20 @@
 package me.kktrkkt.java8to11.junit5.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Getter @Setter @NoArgsConstructor
 public class Member {
-    private long id;
+
+    @Id @GeneratedValue
+    private Long id;
+
     private String email;
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
 }

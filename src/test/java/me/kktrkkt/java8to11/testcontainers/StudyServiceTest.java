@@ -1,8 +1,7 @@
-package me.kktrkkt.java8to11.mockito;
+package me.kktrkkt.java8to11.testcontainers;
 
 import me.kktrkkt.java8to11.junit5.domain.Member;
 import me.kktrkkt.java8to11.junit5.domain.Study;
-import me.kktrkkt.java8to11.junit5.member.MemberNotFoundException;
 import me.kktrkkt.java8to11.junit5.member.MemberService;
 import me.kktrkkt.java8to11.junit5.study.StudyRepository;
 import me.kktrkkt.java8to11.junit5.study.StudyService;
@@ -12,22 +11,27 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 @ExtendWith(MockitoExtension.class)
+@ActiveProfiles("test")
 class StudyServiceTest {
 
     @Mock
     MemberService memberService;
 
-    @Mock
+    @Autowired
     StudyRepository studyRepository;
 
     @Test
@@ -40,7 +44,6 @@ class StudyServiceTest {
         Study study = new Study(10, "테스트");
 
         when(memberService.findById(1L)).thenReturn(Optional.of(member));
-        when(studyRepository.save(study)).thenReturn(study);
 
         studyService.createStudy(1L, study);
         assertEquals(member.getId(), study.getOwnerId());
@@ -52,7 +55,6 @@ class StudyServiceTest {
         // Given
         StudyService studyService = new StudyService(memberService, studyRepository);
         Study study = new Study(10, "더 자바, 테스트");
-        given(studyRepository.save(study)).willReturn(study);
 
         // When
         Study openStudy = studyService.openStudy(study);

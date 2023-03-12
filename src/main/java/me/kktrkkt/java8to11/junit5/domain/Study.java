@@ -1,68 +1,40 @@
 package me.kktrkkt.java8to11.junit5.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import me.kktrkkt.java8to11.junit5.study.StudyStatus;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Getter @Setter @NoArgsConstructor
 public class Study {
 
+    @Id @GeneratedValue
+    private Long id;
     private StudyStatus status = StudyStatus.DRAFT;
-
-    private final int limit;
-
+    private int limitCount;
     private String name;
-
-    private Member owner;
-
     private LocalDateTime openedDateTime;
+    private Long ownerId;
 
     public Study(int limit, String name) {
-        this.limit = limit;
+        this.limitCount = limit;
         this.name = name;
     }
 
     public Study(int limit) {
-        if(limit <= 0){
-            throw new IllegalArgumentException("limit은 0보다 커야됩니다.");
+        if (limit < 0) {
+            throw new IllegalArgumentException("limit은 0보다 커야 한다.");
         }
-        this.limit = limit;
-    }
-
-    public StudyStatus getStatus() {
-        return status;
-    }
-
-    public int getLimit() {
-        return limit;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setOwner(Member member) {
-        this.owner = member;
-    }
-
-    public Member getOwner() {
-        return owner;
-    }
-
-    public LocalDateTime getOpenedDateTime() {
-        return openedDateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "Study{" +
-                "status=" + status +
-                ", limit=" + limit +
-                ", name='" + name + '\'' +
-                '}';
+        this.limitCount = limit;
     }
 
     public void open() {
-        status = StudyStatus.OPENED;
-        openedDateTime = LocalDateTime.now();
+        this.openedDateTime = LocalDateTime.now();
+        this.status = StudyStatus.OPENED;
     }
+
 }
