@@ -6,14 +6,16 @@ import me.kktrkkt.java8to11.junit5.member.MemberService;
 import me.kktrkkt.java8to11.junit5.study.StudyRepository;
 import me.kktrkkt.java8to11.junit5.study.StudyService;
 import me.kktrkkt.java8to11.junit5.study.StudyStatus;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.Optional;
 
@@ -26,13 +28,38 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
-class StudyServiceTest {
+// @Container를 사용하기 위해서 선언한다
+@Testcontainers
+class TestContainerTest {
 
     @Mock
     MemberService memberService;
 
     @Autowired
     StudyRepository studyRepository;
+
+    // BeforeAll과 AfterALL에서 container를 시작하고 종료하는 작업을 대신해준다.
+    @Container
+    // static을 붙이지 않으면 테스트마다 도커를 새로 만든다.
+    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer()
+            .withDatabaseName("studytest");
+
+
+    @BeforeEach
+    void beforeEach() {
+        studyRepository.deleteAll();
+    }
+
+    @BeforeAll
+    static void beforeAll() {
+//        postgreSQLContainer.start();
+//        System.out.println(postgreSQLContainer.getJdbcUrl());
+    }
+
+    @AfterAll
+    static void afterAll() {
+//        postgreSQLContainer.stop();
+    }
 
     @Test
     void createStudy() {
