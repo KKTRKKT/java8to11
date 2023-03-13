@@ -41,7 +41,7 @@ class TestContainerTest {
     // BeforeAll과 AfterALL에서 container를 시작하고 종료하는 작업을 대신해준다.
     @Container
     // static을 붙이지 않으면 테스트마다 도커를 새로 만든다.
-    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer()
+    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres")
             .withDatabaseName("studytest");
 
 
