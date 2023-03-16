@@ -10,7 +10,7 @@ import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.sli
 
 // 아키텍처 테스트를 적용할 패키지 경로등의 옵션을 설정할 수 있다.
 @AnalyzeClasses(packages = "me.kktrkkt.java8to11.junit5", importOptions = { ImportOption.DoNotIncludeTests.class })
-public class DefaultAPITest {
+public class Junit5PackageRuleTest {
 
     // domain 패키지는 study, member, domain에서 접근할 수 있다.
     @ArchTest
