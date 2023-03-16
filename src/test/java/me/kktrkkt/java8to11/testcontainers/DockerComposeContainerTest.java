@@ -1,12 +1,11 @@
 package me.kktrkkt.java8to11.testcontainers;
 
-import lombok.extern.slf4j.Slf4j;
 import me.kktrkkt.java8to11.junit5.domain.Member;
 import me.kktrkkt.java8to11.junit5.domain.Study;
 import me.kktrkkt.java8to11.junit5.member.MemberService;
 import me.kktrkkt.java8to11.junit5.study.StudyRepository;
 import me.kktrkkt.java8to11.junit5.study.StudyService;
-import me.kktrkkt.java8to11.junit5.study.StudyStatus;
+import me.kktrkkt.java8to11.junit5.domain.StudyStatus;
 import org.junit.ClassRule;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,10 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.containers.DockerComposeContainer;
-import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.containers.wait.strategy.Wait;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.File;

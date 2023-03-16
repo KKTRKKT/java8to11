@@ -2,11 +2,10 @@ package me.kktrkkt.java8to11.mockito;
 
 import me.kktrkkt.java8to11.junit5.domain.Member;
 import me.kktrkkt.java8to11.junit5.domain.Study;
-import me.kktrkkt.java8to11.junit5.member.MemberNotFoundException;
 import me.kktrkkt.java8to11.junit5.member.MemberService;
 import me.kktrkkt.java8to11.junit5.study.StudyRepository;
 import me.kktrkkt.java8to11.junit5.study.StudyService;
-import me.kktrkkt.java8to11.junit5.study.StudyStatus;
+import me.kktrkkt.java8to11.junit5.domain.StudyStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +17,6 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

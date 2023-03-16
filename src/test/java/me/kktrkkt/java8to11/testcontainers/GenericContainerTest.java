@@ -6,7 +6,7 @@ import me.kktrkkt.java8to11.junit5.domain.Study;
 import me.kktrkkt.java8to11.junit5.member.MemberService;
 import me.kktrkkt.java8to11.junit5.study.StudyRepository;
 import me.kktrkkt.java8to11.junit5.study.StudyService;
-import me.kktrkkt.java8to11.junit5.study.StudyStatus;
+import me.kktrkkt.java8to11.junit5.domain.StudyStatus;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

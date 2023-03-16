@@ -3,7 +3,6 @@ package me.kktrkkt.java8to11.junit5.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import me.kktrkkt.java8to11.junit5.study.StudyStatus;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
