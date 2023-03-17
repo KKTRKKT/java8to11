@@ -1,4 +1,4 @@
-package me.kktrkkt.java8to11.annotaion.chicken;
+package me.kktrkkt.java8to11.annotation.chicken;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

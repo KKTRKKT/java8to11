@@ -1,4 +1,4 @@
-package me.kktrkkt.java8to11.annotaion;
+package me.kktrkkt.java8to11.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
