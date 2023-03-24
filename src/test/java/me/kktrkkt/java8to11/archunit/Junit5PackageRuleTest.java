@@ -30,7 +30,7 @@ public class Junit5PackageRuleTest {
             .should().onlyBeAccessed().byClassesThat()
             .resideInAnyPackage("..study..");
 
-    // 해당 패키지에 순환 참조가 없어야한다.
+    // junit5 패키지의 모든 클래스는 순환 참조가 없어야한다.
     @ArchTest
     ArchRule freeOfCycles = slices().matching("..junit5.(*)..")
             .should().beFreeOfCycles();
